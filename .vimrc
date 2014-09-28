@@ -45,7 +45,15 @@ map ,# :s/^/#/<CR>
 map ,/ :s/^/\/\//<CR>
 map ,c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>
 
-nmap gn :tabnew 
-map gn :tabnew 
+nmap gn :tabnew
+map gn :tabnew
 
 set ruler
+
+set foldmethod=manual
+
+" reflow text
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+set encoding=utf-8
+inoremap jk <ESC>
