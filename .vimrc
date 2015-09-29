@@ -1,59 +1,38 @@
 set nocompatible
-filetype on
-set history=500
-filetype plugin on
-set lsp=0
-set number
+set mouse=""
+
 set cmdheight=2
 set backspace=2
 
-set listchars=tab:>-
-set listchars+=trail:.
-
-set ai
-set si
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set expandtab
 set nowrap
+set expandtab
 set smarttab
 
-" folding
-set foldmethod=syntax
-set foldenable
-set foldlevel=100
-set foldopen-=search
-set foldopen-=undo
+set scrolloff=10
+set sidescrolloff=20
 
-set scrolloff=12
+set nu
+set ruler
+set cursorline
+set cursorcolumn
+
 set incsearch
 set ignorecase
 set smartcase
 
-syntax on
+set encoding=utf-8
 set background=dark
 
-set pastetoggle=
+syntax on
+set cindent
+"autocmd FileType python setlocal foldmethod=indent smartindent shiftwidth=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
+filetype plugin indent on
+set cinkeys-=0#
 
-" cursor line stuff
-set cursorline
-set cursorcolumn
-
-" auto commenting line
-map ,# :s/^/#/<CR>
-map ,/ :s/^/\/\//<CR>
-map ,c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>
-
-nmap gn :tabnew
-map gn :tabnew
-
-set ruler
-
-set foldmethod=manual
-
-" reflow text
-nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
-set encoding=utf-8
 inoremap jk <ESC>
+
+" Remove whitespace at end of line
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
